@@ -14,15 +14,31 @@ const config = {
       prerelease: true,
     },
   ],
-  plugins: [
-    '@semantic-release/commit-analyzer',
-    '@semantic-release/release-notes-generator',
-  ],
+  plugins: [],
 };
 
+config.plugins.push('@semantic-release/commit-analyzer');
+config.plugins.push([
+  '@semantic-release/release-notes-generator',
+  {
+    preset: 'conventionalcommits',
+    presetConfig: {
+      types: [
+        { type: 'breaking', section: '❗ Breaking ❗', hidden: false },
+        { type: 'feat', section: '✨ Feature ✨', hidden: false },
+        { type: 'fix', section: '🐛 Bugfix 🐛', hidden: false },
+        { type: 'hotfix', section: '🔥 Hotfix 🔥', hidden: false },
+        // !  The following are capitalized to grab attention
+        { type: 'BREAKING', section: '❗ Breaking ❗', hidden: false },
+        { type: 'HOTFIX', section: '🔥 Hotfix 🔥', hidden: false },
+      ],
+    },
+  },
+]);
+
 if (config.branches.some((it) => it === branch || it.name === branch)) {
-  const pf = config.branches[0] !== CI_COMMIT_BRANCH ? `-${branch}` : '';
-  console.log({ pf, b: config.branches[0], CI_COMMIT_BRANCH });
+  const pf = config.branches[0] === CI_COMMIT_BRANCH ? `-${branch}` : '';
+  console.log({ config });
   config.plugins.push('@semantic-release/changelog', [
     '@semantic-release/git',
     {
