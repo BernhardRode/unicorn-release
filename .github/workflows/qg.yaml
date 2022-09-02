@@ -6,11 +6,12 @@ on:
 
 jobs:
   qg:
+    name: 👨🏽‍💼 Prepare a QG4
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Checkout source code
         uses: actions/checkout@v3
-      - name: 🧑🏼‍💻 Approval by Tech Lead
+      - name: 🧑🏼‍💻 Get approval by Tech Lead
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
