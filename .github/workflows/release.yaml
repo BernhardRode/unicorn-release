@@ -1,11 +1,10 @@
 name: Release
-# on:
-#   repository_dispatch:
-#     types: [semantic-release]
+
 on:
   push:
     branches:
       - main
+      - next
 jobs:
   release:
     name: Release
