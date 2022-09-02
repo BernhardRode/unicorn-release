@@ -1,7 +1,8 @@
-name: qg
+name: QG
 
 on:
   pull_request:
+    branches: [master]
 
 jobs:
   qg:
