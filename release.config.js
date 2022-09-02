@@ -37,8 +37,8 @@ config.plugins.push([
 ]);
 
 if (config.branches.some((it) => it === branch || it.name === branch)) {
-  const pf = config.branches[0] === CI_COMMIT_BRANCH ? `-${branch}` : '';
-  console.log({ config });
+  const pf = config.branches[0] === branch ? '' : `-${branch}`;
+
   config.plugins.push('@semantic-release/changelog', [
     '@semantic-release/git',
     {
