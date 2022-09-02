@@ -8,7 +8,7 @@
     {
       "name": "develop",
       "prerelease": true,
-      "publish": false
+      "channel": "develop"
     }
   ],
   "plugins": [

@@ -1,0 +1,14 @@
+name: CI build
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛒 Checkout source code
+        uses: actions/checkout@v2
+      - name: 🚧 Install dependencies
+        run: echo "Magicbuild"
