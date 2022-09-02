@@ -1,12 +1,11 @@
-name: QG
+name: 👨🏽‍💼 Prepare a QG4
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   qg:
-    name: 👨🏽‍💼 Prepare a QG4
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Checkout source code
