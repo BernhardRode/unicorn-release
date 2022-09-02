@@ -1,6 +1,7 @@
 const { CI_COMMIT_BRANCH, NODE_ENV } = process.env;
 
 const branch = CI_COMMIT_BRANCH;
+
 const config = {
   debug: NODE_ENV !== 'production',
   branches: [
@@ -16,6 +17,13 @@ const config = {
   ],
   plugins: [],
 };
+
+let pf = '';
+if (config.branches.some((it) => it === branch || it.name === branch)) {
+  pf = config.branches[0] === branch ? '' : `-${branch}`;
+}
+const changelogFile = `CHANGELOG${pf}.md`;
+console.log({ changelogFile });
 
 config.plugins.push('@semantic-release/commit-analyzer');
 config.plugins.push([
@@ -36,26 +44,20 @@ config.plugins.push([
   },
 ]);
 
-if (config.branches.some((it) => it === branch || it.name === branch)) {
-  const pf = config.branches[0] === branch ? '' : `-${branch}`;
-
-  config.plugins.push('@semantic-release/changelog', [
-    '@semantic-release/git',
-    {
-      assets: [`CHANGELOG${pf}.md`],
-      message:
-        'chore(release): ${nextRelease.version} \n\n${nextRelease.notes}',
-    },
-  ]);
-}
+config.plugins.push([
+  '@semantic-release/changelog',
+  {
+    changelogFile,
+  },
+]);
 
 config.plugins.push([
   '@semantic-release/git',
   {
-    message:
-      'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+    assets: [changelogFile],
   },
 ]);
+
 config.plugins.push([
   '@semantic-release/github',
   {
