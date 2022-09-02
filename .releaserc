@@ -7,7 +7,8 @@
     },
     {
       "name": "develop",
-      "prerelease": true
+      "prerelease": true,
+      "publish": false
     }
   ],
   "plugins": [
@@ -21,7 +22,10 @@
       }
     ],
     [
-      "@semantic-release/github"
+      "@semantic-release/github",
+      {
+        "addReleases": "bottom"
+      }
     ]
   ]
 }
