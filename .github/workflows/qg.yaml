@@ -1,10 +1,10 @@
-name: github-pr-release
+name: qg
 
 on:
   pull_request:
 
 jobs:
-  github-pr-release:
+  qg:
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Checkout source code
