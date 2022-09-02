@@ -30,6 +30,7 @@ config.plugins.push([
   '@semantic-release/release-notes-generator',
   {
     preset: 'conventionalcommits',
+    changelogFile,
     presetConfig: {
       types: [
         { type: 'breaking', section: '❗ Breaking ❗', hidden: false },
