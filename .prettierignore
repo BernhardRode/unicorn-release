@@ -1,0 +1,8 @@
+# ignore node stuff
+node_modules
+package-lock.json
+
+# Ignore artifacts:
+build
+coverage
+dist
