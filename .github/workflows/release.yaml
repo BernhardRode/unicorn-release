@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - next
+      - develop
 jobs:
   release:
     name: Release
