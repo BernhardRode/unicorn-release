@@ -1,5 +1,5 @@
-name: Release
-# on:
+name: 🪩 Run semantic release
+
 on:
   push:
     branches:
@@ -8,7 +8,6 @@ on:
       - develop
 jobs:
   release:
-    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Checkout source code

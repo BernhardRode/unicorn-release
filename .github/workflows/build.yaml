@@ -1,0 +1,13 @@
+name: 👷‍♂️ Build with Bazel
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout source code
+        uses: actions/checkout@v2
+      - name: 🚧 Install Setup bazelisk for Bazel builds
+        uses: holvonix-open/setup-bazelisk@v0.6.1
