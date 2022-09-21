@@ -1,19 +1,18 @@
-name: 👨🏽‍💼 Prepare a QG4
+name: 👨🏽‍💼 Make a QG4
 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   qg:
     runs-on: ubuntu-latest
     steps:
-      - name: 🛒 Checkout source code
-        uses: actions/checkout@v3
       - name: 🧑🏼‍💻 Get approval by Tech Lead
-        uses: trstringer/manual-approval@v1
+        uses: trstringer/manual-approval@v1.6.0
         with:
           secret: ${{ github.TOKEN }}
-          approvers: bernhardrode
+          approvers: BernhardRode
           minimum-approvals: 1
           issue-title: "Tech Lead Approval"
