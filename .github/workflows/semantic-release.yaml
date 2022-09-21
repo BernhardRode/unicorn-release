@@ -9,19 +9,33 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - name: 🛒 Checkout source code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
       - name: 🧑🏼‍💻 Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: "16"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@bosch-engineering-test"
+
       - name: 🧱 Install dependencies
-        run: npm ci
+        run: |
+          npm i
+          npm ci --ws
+
+      - name: 🚧 Build packages
+        run: |
+          npm run build --ws --if-present
+
       - name: 🚛 Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx auto shipit

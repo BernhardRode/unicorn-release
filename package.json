@@ -46,12 +46,9 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
   "engines": {
     "npm": ">=8.0.0",
-    "node": ">=18.0.0"
+    "node": ">=16.0.0"
   },
   "packageManager": "npm@8.5.1"
 }
