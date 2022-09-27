@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1-develop.1](https://github.com/BernhardRode/unicorn-release/compare/v2.0.0-develop.1...v2.0.1-develop.1) (2022-09-27)
+
+
+### Bug Fixes
+
+* only a simple fix ([f60a8b7](https://github.com/BernhardRode/unicorn-release/commit/f60a8b757e365b0ed5bbc688ed585528cf040b10))
+* only a simple fix ([66f90a9](https://github.com/BernhardRode/unicorn-release/commit/66f90a945cd68eba2240ab75f4b19474f41a2932))
+* only a simple fix ([9040559](https://github.com/BernhardRode/unicorn-release/commit/9040559131f3ccdd3450ef08317bb3de57fd0e63))
+* only a simple fix ([3e8b03e](https://github.com/BernhardRode/unicorn-release/commit/3e8b03eb58784009dc006f3061520edbdcb0ce84))
+
 ## [2.0.0-develop.1](https://github.com/BernhardRode/unicorn-release/compare/v1.0.0-develop.1...v2.0.0-develop.1) (2022-09-21)
 
 
