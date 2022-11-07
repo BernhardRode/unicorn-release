@@ -1,7 +1,7 @@
 name: 🕵🏼 Run a Open Soure Review Toolkit
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
