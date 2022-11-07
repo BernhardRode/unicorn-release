@@ -1,3 +1,6 @@
 {
-  "plugins": ["node-workspace"]
+  "plugins": [
+    "node-workspace"
+  ],
+  "prerelease": true
 }
