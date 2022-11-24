@@ -14,6 +14,7 @@ jobs:
           release-type: node
           draft: true
           prerelease: true
+          skip-github-release: false
           pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
           extra-files: |
             README.md
