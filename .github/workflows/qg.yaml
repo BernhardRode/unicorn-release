@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🧑🏼‍💻 Get approval by Tech Lead
-        uses: trstringer/manual-approval@v1.6.0
+        uses: trstringer/manual-approval@v1.8.0
         with:
           secret: ${{ github.TOKEN }}
           approvers: BernhardRode
