@@ -1,0 +1,16 @@
+name: 📜 Extract SBOM
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # - uses: actions/setup-node@v3
+      # - run: npm ci --workspaces --include-workspace-root
+      - name: Anchore SBOM Action
+        uses: anchore/sbom-action@v0.13.1
