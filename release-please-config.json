@@ -1,5 +1,1 @@
-{
-  "plugins": ["node-workspace"],
-  "draft": true,
-  "prerelease": true
-}
+{}
