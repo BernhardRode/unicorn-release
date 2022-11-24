@@ -1,6 +1,6 @@
 {
   "name": "@bosch-engineering/unicorn-release",
-  "version": "0.0.0-develop",
+  "version": "1.0.0",
   "description": "",
   "workspaces": [
     "apps/*",
