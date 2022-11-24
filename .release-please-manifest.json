@@ -1,1 +1,3 @@
-{}
+{
+  "group-pull-request-title-pattern": "chore: 🚀 release ${branch}"
+}
