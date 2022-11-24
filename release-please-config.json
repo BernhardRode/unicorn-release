@@ -1,8 +1,0 @@
-{
-  "plugins": ["node-workspace"],
-  "packages": {
-    ".": {
-      "release-type": "node"
-    }
-  }
-}
