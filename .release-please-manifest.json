@@ -1,4 +1,6 @@
 {
   "plugins": ["node-workspace"],
-  "prerelease": true
+  "draft": true,
+  "prerelease": true,
+  "group-pull-request-title-pattern": "chore: 🚀 release ${branch}"
 }
