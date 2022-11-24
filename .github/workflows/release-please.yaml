@@ -13,3 +13,4 @@ jobs:
         with:
           draft: true
           prerelease: true
+          pull-request-title-pattern: "chore(${scope}): release ${component} ${version}"
