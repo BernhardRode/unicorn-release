@@ -12,7 +12,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          draft: true
+          draft: false
           prerelease: true
           skip-github-release: false
           pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
