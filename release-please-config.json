@@ -1,5 +1,10 @@
 {
   "plugins": ["node-workspace"],
   "draft": true,
-  "prerelease": true
+  "prerelease": true,
+  "packages": {
+    ".": {
+      "release-type": "node"
+    }
+  }
 }
