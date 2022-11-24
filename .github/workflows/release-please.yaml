@@ -12,5 +12,3 @@ jobs:
       - uses: google-github-actions/release-please-action@v3.6.1
         with:
           command: manifest
-          token: ${{secrets.GITHUB_TOKEN}}
-          default-branch: main
