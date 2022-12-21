@@ -38,7 +38,7 @@ jobs:
       - name: Sets env vars for release (PR)
         if: github.ref != 'refs/heads/main'
         env:
-          ENVIRONMENT: $github.head.name
+          ENVIRONMENT: ${{ github.head.name }}
         run: |
           echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
       # - name: Sets env vars for release (DEVELOPMENT)
