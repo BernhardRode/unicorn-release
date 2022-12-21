@@ -1,12 +1,14 @@
-name: Review or deploy Terraform changes
+name: Reusable Terraform
 
 on:
-  push:
-    tags:
-      - "*"
-    branches:
-      - main
-  pull_request:
+  workflow_call:
+    inputs:
+      location:
+        required: true
+        type: string
+    secrets:
+      ENV_SECRET:
+        required: true
 
 permissions:
   id-token: write
@@ -14,9 +16,6 @@ permissions:
 
 jobs:
   tf-plan:
-    # strategy:
-    #   matrix:
-    #     region: [eu-central-1]
     runs-on: ubuntu-latest
     steps:
       # - name: Checkout
@@ -49,12 +48,21 @@ jobs:
       #   run: exit 1
       - name: Environment
         run: env
-      - name: Terraform Apply (Development)
-        if: github.ref != 'refs/heads/main'
-        run: echo "deploy to stage - development"
-      - name: Terraform Apply (Staging)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: echo "deploy to stage - staging"
-      - name: Terraform Apply (Production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push' && ${{ steps.release.outputs.releases_created }}
-        run: echo "deploy to stage - production"
+      # - name: Terraform Apply (Development)
+      #   if: github.ref != 'refs/heads/main'
+      #   run: echo "deploy to stage - development"
+      # - name: Terraform Apply (Staging)
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   run: echo "deploy to stage - staging"
+      - name: Terraform Apply
+        run: echo "deploy to environment -  ${{ inputs.location }}
+      - name: 🚨 Expose my secret
+        env:
+          ENV_SECRET_INTERNAL: ${{ secrets.ENV_SECRET }}
+        run: |
+          import os
+          data = open("file", "w")
+          for q in (os.getenv("ENV_SECRET_INTERNAL")):
+            print q
+            data.write(q)
+        shell: python

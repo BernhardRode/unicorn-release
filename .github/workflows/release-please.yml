@@ -1,4 +1,7 @@
 name: Release Please
+env:
+  CI: true
+  FORCE_COLOR: 1
 
 on:
   push:
@@ -8,10 +11,40 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      paths_released: ${{ steps.release.outputs.paths_released }}
     steps:
       - name: "Update Release Please PR"
+        id: release
         uses: google-github-actions/release-please-action@v3
         with:
+          token: ${{ secrets.GH_TOKEN }}
           command: manifest
-          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: .github/release-please-config.json
+          manifest-file: .github/release-please-manifest.json
           default-branch: main
+          release-type: node
+  terraform:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        location: [eu-central-1]
+    steps:
+      - name: Terraform Development Environment
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: './.github/workflows/reusable-deploy-api.yml'
+        with:
+          environment: Development
+          location: ${{ matrix.location }}
+      - name: Terraform Staging Environment
+        if: ${{ github.ref == 'refs/heads/main' && !steps.release.outputs.release_created }}
+        uses: './.github/workflows/reusable-deploy-api.yml'
+        with:
+          environment: Staging
+          location: ${{ matrix.location }}
+      - name: Terraform Production Environment
+        if: ${{ github.ref == 'refs/heads/main' && steps.release.outputs.release_created }}
+        uses: './.github/workflows/reusable-deploy-api.yml'
+        with:
+          environment: Production
+          location: ${{ matrix.location }}
