@@ -1,4 +1,4 @@
-name: 'Require Conventional Commits'
+name: Require Conventional Commits
 
 on:
   # `pull_request_target` event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the pull_request event does.
