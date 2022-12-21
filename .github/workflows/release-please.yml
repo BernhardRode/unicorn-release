@@ -12,7 +12,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      paths_released: ${{ steps.release.outputs.paths_released }}
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - name: Faker
         id: release
