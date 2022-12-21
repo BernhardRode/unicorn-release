@@ -1,0 +1,8 @@
+# Changelog
+
+## [0.1.0-devel](https://github.com/BernhardRode/unicorn-release/compare/cps-schemas-v0.0.0-devel...cps-schemas-v0.1.0-devel) (2022-12-21)
+
+
+### Features
+
+* add base monorepo ([f813499](https://github.com/BernhardRode/unicorn-release/commit/f813499e0f4af6ea4e5dd82740a3bae1c4803243))
