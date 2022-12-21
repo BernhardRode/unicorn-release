@@ -31,6 +31,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' && github.event_name == 'pull_request' }}
         run: |
           echo "CPS_ENVIRONMENT=-${ENVIRONMENT}" >> $GITHUB_ENV
+          echo "CPS_ENVIRONMENT_2=ABV" >> $GITHUB_ENV
 
       # - name: Sets env vars for release (DEVELOPMENT)
       #   if: github.ref == 'refs/heads/main'
