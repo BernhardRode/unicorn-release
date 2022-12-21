@@ -47,6 +47,8 @@ jobs:
       # - name: Terraform Plan Status
       #   if: steps.plan.outcome == 'failure'
       #   run: exit 1
+      - name: Environment
+        run: env
       - name: Terraform Apply (Development)
         if: github.ref != 'refs/heads/main'
         run: echo "deploy to stage - development"
