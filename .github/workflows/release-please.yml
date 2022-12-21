@@ -32,19 +32,19 @@ jobs:
     steps:
       - name: Terraform Development Environment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: '.github/workflows/reusable-deploy-api.yml'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Development
           location: ${{ matrix.location }}
       - name: Terraform Staging Environment
         if: ${{ github.ref == 'refs/heads/main' && !steps.release.outputs.release_created }}
-        uses: '.github/workflows/reusable-deploy-api.yml'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Staging
           location: ${{ matrix.location }}
       - name: Terraform Production Environment
         if: ${{ github.ref == 'refs/heads/main' && steps.release.outputs.release_created }}
-        uses: '.github/workflows/reusable-deploy-api.yml'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Production
           location: ${{ matrix.location }}
