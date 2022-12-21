@@ -43,7 +43,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
           aws-region: ${{ matrix.region }}
-      - name: List S3 buckets
+      - name: List S3 buckets (${{ matrix.region }})
         run: |
           aws s3 ls
       # - name:  Setup Terraform with specified version on the runner
