@@ -1,0 +1,25 @@
+name: Create PR Env
+
+on:
+  pull_request:
+    types: [reopened, opened, synchronize, edited]
+
+jobs:
+  create_or_update_pr_env:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        region:
+          - eu-central-1
+          - eu-west-1
+          - eu-west-2
+    env:
+      BRANCH_NAME: ${{ github.head_ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
+          aws-region: ${{ matrix.region }}
