@@ -2,9 +2,9 @@ name: Reusable Terraform
 
 on:
   push:
+  pull_request:
     branches:
       - main
-  pull_request:
   # workflow_call:
   #   inputs:
   #     location:
