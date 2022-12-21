@@ -30,10 +30,9 @@ jobs:
       - name: Sets env vars for release (PR)
         if: ${{ github.ref != 'refs/heads/main' && github.event_name == 'pull_request' }}
         env:
-          ENVIRONMENT: ABC
+          ENVIRONMENT: ABC${{github.event_name}}DEF
         run: |
           echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
-          echo "CPS_ENVIRONMENT_2=DEF" >> $GITHUB_ENV
 
       # - name: Sets env vars for release (DEVELOPMENT)
       #   if: github.ref == 'refs/heads/main'
