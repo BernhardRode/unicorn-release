@@ -29,23 +29,21 @@ jobs:
         shell: bash
         # We keep Terraform files in the terraform directory.
         working-directory: ./terraform
-
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v3
+      - name: Sets env vars for release
+        run: |
+          echo "CPS_ENVIRONMENT=development" >> $GITHUB_ENV
       - name: Environment
         run: |
-          curl \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
-            -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/bosch-engineering/cubanops-rbo2abt/environments
           env | sort
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
+          aws-region: eu-central-1
 
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v1-node16
-      #   with:
-      #     role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
-      #     aws-region: eu-central-1
       # - name: Setup Terraform with specified version on the runner
       #   uses: hashicorp/setup-terraform@v2
       #   with:
