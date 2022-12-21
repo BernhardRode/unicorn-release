@@ -1,0 +1,470 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Cubanops Basic Configuration for DevOps
+
+Parameters:
+  GitHubOrganization:
+    Type: String
+    Description: This is the root organization or personal account where repos are stored (Case Sensitive)
+    Default: "bosch-engineering"
+
+  RepositoryName:
+    Type: String
+    Description: The repo(s) these roles will have access to. (Use * for all org or personal repos)
+    Default: "cubanops"
+
+  BranchName:
+    Type: String
+    Description: Name of the git branch to to trust. (Use * for all branches)
+    Default: "main"
+
+  RoleName:
+    Type: String
+    Description: Name the Role
+    Default: "main"
+
+  UseExistingProvider:
+    Type: String
+    Description: "Only one GitHub Provider can exists. Choose yes if one is already present in account"
+    Default: "no"
+    AllowedValues:
+      - "yes"
+      - "no"
+
+Conditions:
+  CreateProvider: !Equals ["no", !Ref UseExistingProvider]
+
+Metadata:
+  "AWS::CloudFormation::Designer":
+    74e340fa-620a-4c67-a901-4b78175c379c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 760
+        "y": 320
+      z: 0
+      embeds: []
+    53e49348-22b9-42eb-b7fe-75a26599e30c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 950
+        "y": 250
+      z: 0
+      embeds: []
+      dependson:
+        - 74e340fa-620a-4c67-a901-4b78175c379c
+    81eef0f0-0571-4df1-89e2-851010d49457:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 950
+        "y": 320
+      z: 0
+      embeds: []
+      dependson:
+        - 74e340fa-620a-4c67-a901-4b78175c379c
+    0ff15d5c-21b3-45a5-a42a-7ca01d4f9698:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 950
+        "y": 390
+      z: 0
+      embeds: []
+      dependson:
+        - 74e340fa-620a-4c67-a901-4b78175c379c
+    8b52f102-68de-4827-be0d-77a815e18a74:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1060
+        "y": 250
+      z: 0
+      embeds: []
+      dependson:
+        - 53e49348-22b9-42eb-b7fe-75a26599e30c
+    4731af00-70ac-422c-8e82-0e0914ed9d97:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1160
+        "y": 250
+      z: 0
+      embeds: []
+      dependson:
+        - 8b52f102-68de-4827-be0d-77a815e18a74
+        - 1dc4466c-f926-4424-b614-17ff3106905f
+    244e1ae4-6d54-41ee-b95c-a5186577b714:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    45cecc2c-9726-4428-a675-82b5371f1ee5:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    dee2aad7-595b-4c3e-a875-611d53e8512e:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    048cc44b-4b62-4625-9652-792f002b11a7:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    44a1d323-c853-4583-8dca-4788f0fb9804:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    950ce1f0-a0c9-4fe4-a260-57167f41df75:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    b96277cd-9d7d-4f81-8acd-ce3a2b8d59e5:
+      source:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 12
+    2aaabcfb-a5a0-4a6b-93fc-1c7fc4510a4a:
+      source:
+        id: 4731af00-70ac-422c-8e82-0e0914ed9d97
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(3) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+      z: 12
+    02650141-a5af-47b0-8fd3-07d818f03e81:
+      source:
+        id: 4731af00-70ac-422c-8e82-0e0914ed9d97
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(3) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+      z: 12
+    bf2f7b39-a8bb-4f60-894e-707fd4f5115c:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1060
+        "y": 320
+      z: 0
+      embeds: []
+      dependson:
+        - 81eef0f0-0571-4df1-89e2-851010d49457
+    57fd8e17-74f0-4774-8a51-7808e165006d:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1060
+        "y": 390
+      z: 0
+      embeds: []
+      dependson:
+        - 0ff15d5c-21b3-45a5-a42a-7ca01d4f9698
+    ca033fbc-dab5-45fc-8952-fe67c24227c6:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1160
+        "y": 320
+      z: 0
+      embeds: []
+      dependson:
+        - bf2f7b39-a8bb-4f60-894e-707fd4f5115c
+    091f9fa5-8ff9-4ca8-b445-5fcb36bf8819:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1160
+        "y": 390
+      z: 0
+      embeds: []
+      dependson:
+        - 57fd8e17-74f0-4774-8a51-7808e165006d
+    e11c3788-5d2f-45c0-9324-1b5654b4c9e5:
+      source:
+        id: 4731af00-70ac-422c-8e82-0e0914ed9d97
+        selector: "g:nth-child(1) g:nth-child(4) g:nth-child(3) circle:nth-child(1)     "
+        port: "AWS::DependencyLink-*"
+      target:
+        id: 8b52f102-68de-4827-be0d-77a815e18a74
+      z: 12
+    cc6ad401-5132-4691-8efe-f29068d36efa:
+      source:
+        id: ca033fbc-dab5-45fc-8952-fe67c24227c6
+      target:
+        id: bf2f7b39-a8bb-4f60-894e-707fd4f5115c
+      z: 11
+    ed1949f4-51db-48cc-8888-abd742075dbc:
+      source:
+        id: 091f9fa5-8ff9-4ca8-b445-5fcb36bf8819
+      target:
+        id: 57fd8e17-74f0-4774-8a51-7808e165006d
+      z: 12
+    1dc4466c-f926-4424-b614-17ff3106905f:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 1060
+        "y": 250
+      z: 0
+      embeds: []
+      dependson:
+        - 53e49348-22b9-42eb-b7fe-75a26599e30c
+    032e713f-c5a7-4a4b-9f06-f584cce2f7a6:
+      source:
+        id: ca033fbc-dab5-45fc-8952-fe67c24227c6
+      target:
+        id: bf2f7b39-a8bb-4f60-894e-707fd4f5115c
+      z: 11
+    b1aa0739-f5cf-4ff3-946a-d1e881f42df1:
+      source:
+        id: 4731af00-70ac-422c-8e82-0e0914ed9d97
+      target:
+        id: 1dc4466c-f926-4424-b614-17ff3106905f
+      z: 12
+    edc38e05-c1ef-4b26-9a78-71b4030f9418:
+      source:
+        id: 57fd8e17-74f0-4774-8a51-7808e165006d
+      target:
+        id: 0ff15d5c-21b3-45a5-a42a-7ca01d4f9698
+      z: 11
+    22bdb699-ee29-47c8-9010-6fe95b922fbd:
+      source:
+        id: bf2f7b39-a8bb-4f60-894e-707fd4f5115c
+      target:
+        id: 81eef0f0-0571-4df1-89e2-851010d49457
+      z: 12
+    ada59c29-0fda-4cdb-ba3a-4a93346a4327:
+      source:
+        id: 1dc4466c-f926-4424-b614-17ff3106905f
+      target:
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+      z: 13
+Resources:
+  Main:
+    Type: "AWS::Organizations::Account"
+    Properties:
+      AccountName: "Main"
+      Email: rbo2abt+cps-main@bosch.com
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 74e340fa-620a-4c67-a901-4b78175c379c
+  Development:
+    Type: "AWS::Organizations::Account"
+    Properties:
+      AccountName: "Development"
+      Email: rbo2abt+cps-development@bosch.com
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 53e49348-22b9-42eb-b7fe-75a26599e30c
+    DependsOn:
+      - Main
+  Staging:
+    Type: "AWS::Organizations::Account"
+    Properties:
+      AccountName: "Staging"
+      Email: rbo2abt+cps-staging@bosch.com
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 81eef0f0-0571-4df1-89e2-851010d49457
+    DependsOn:
+      - Main
+  Production:
+    Type: "AWS::Organizations::Account"
+    Properties:
+      AccountName: "Production"
+      Email: rbo2abt+cps-production@bosch.com
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 0ff15d5c-21b3-45a5-a42a-7ca01d4f9698
+    DependsOn:
+      - Main
+  OIDCProviderDevelopment:
+    Type: "AWS::IAM::OIDCProvider"
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+        - !Sub https://github.com/${GitHubOrganization}/${RepositoryName}
+      ThumbprintList:
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+      Tags:
+        - Key: Name
+          Value: !Sub ${RoleName}-OIDC-Provider
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 1dc4466c-f926-4424-b614-17ff3106905f
+    DependsOn:
+      - Development
+  OIDCProviderStaging:
+    Type: "AWS::IAM::OIDCProvider"
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+        - !Sub https://github.com/${GitHubOrganization}/${RepositoryName}
+      ThumbprintList:
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+      Tags:
+        - Key: Name
+          Value: !Sub ${RoleName}-OIDC-Provider
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: bf2f7b39-a8bb-4f60-894e-707fd4f5115c
+    DependsOn:
+      - Staging
+  OIDCProviderProduction:
+    Type: "AWS::IAM::OIDCProvider"
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+        - !Sub https://github.com/${GitHubOrganization}/${RepositoryName}
+      ThumbprintList:
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+      Tags:
+        - Key: Name
+          Value: !Sub ${RoleName}-OIDC-Provider
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 57fd8e17-74f0-4774-8a51-7808e165006d
+    DependsOn:
+      - Production
+  DevOpsRoleDevelopment:
+    Type: "AWS::IAM::Role"
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 4731af00-70ac-422c-8e82-0e0914ed9d97
+    DependsOn:
+      - OIDCProviderDevelopment
+    Properties:
+      RoleName: !Ref RoleName
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: !If
+                - CreateProvider
+                - !Ref OIDCProviderDevelopment
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrganization}/${RepositoryName}:ref:refs/heads/${BranchName}
+      ManagedPolicyArns:
+        ## edit the managed policy to give least privileges
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/AdministratorAccess
+  DevOpsRoleStaging:
+    Type: "AWS::IAM::Role"
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: ca033fbc-dab5-45fc-8952-fe67c24227c6
+    DependsOn:
+      - OIDCProviderStaging
+    Properties:
+      RoleName: !Ref RoleName
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: !If
+                - CreateProvider
+                - !Ref OIDCProviderStaging
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrganization}/${RepositoryName}:ref:refs/heads/${BranchName}
+      ManagedPolicyArns:
+        ## edit the managed policy to give least privileges
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/AdministratorAccess
+  DevOpsRoleProduction:
+    Type: "AWS::IAM::Role"
+    Metadata:
+      "AWS::CloudFormation::Designer":
+        id: 091f9fa5-8ff9-4ca8-b445-5fcb36bf8819
+    DependsOn:
+      - OIDCProviderProduction
+    Properties:
+      RoleName: !Ref RoleName
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: !If
+                - CreateProvider
+                - !Ref OIDCProviderProduction
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrganization}/${RepositoryName}:ref:refs/heads/${BranchName}
+      ManagedPolicyArns:
+        ## edit the managed policy to give least privileges
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/AdministratorAccess
+
+Outputs:
+  OIDCProviderDevelopment:
+    Condition: CreateProvider
+    Description: "ARN of Github OIDC Provider (Development)"
+    Value: !GetAtt OIDCProviderDevelopment.Arn
+
+  OIDCProviderStaging:
+    Condition: CreateProvider
+    Description: "ARN of Github OIDC Provider (Staging)"
+    Value: !GetAtt OIDCProviderStaging.Arn
+
+  OIDCProviderProduction:
+    Condition: CreateProvider
+    Description: "ARN of Github OIDC Provider (Production)"
+    Value: !GetAtt OIDCProviderProduction.Arn
+
+  GithubActionsRoleDevelopment:
+    Description: "CICD Role for GitHub Actions (Development)"
+    Value: !GetAtt DevOpsRoleDevelopment.Arn
+
+  GithubActionsRoleStaging:
+    Description: "CICD Role for GitHub Actions (Staging)"
+    Value: !GetAtt DevOpsRoleStaging.Arn
+
+  GithubActionsRoleProduction:
+    Description: "CICD Role for GitHub Actions (Production)"
+    Value: !GetAtt DevOpsRoleProduction.Arn

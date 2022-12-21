@@ -14,14 +14,13 @@ on:
   #       required: true
 
 env:
- # verbosity setting for Terraform logs
- TF_LOG: INFO
- # Credentials for deployment to AWS
- AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
- AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
- # S3 bucket for the Terraform state
- BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
-
+  # verbosity setting for Terraform logs
+  TF_LOG: INFO
+  # Credentials for deployment to AWS
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  # S3 bucket for the Terraform state
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
 
 permissions:
   id-token: write
@@ -31,10 +30,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     defaults:
-     run:
-       shell: bash
-       # We keep Terraform files in the terraform directory.
-       working-directory: ./terraform
+      run:
+        shell: bash
+        # We keep Terraform files in the terraform directory.
+        working-directory: ./terraform
 
     steps:
       - name: Checkout the repository to the runner
@@ -42,7 +41,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::828226612169:role/rbo2abt-devops-demo-stack
+          role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
           aws-region: eu-central-1
       # - name:  Setup Terraform with specified version on the runner
       #   uses: hashicorp/setup-terraform@v2
