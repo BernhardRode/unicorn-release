@@ -43,9 +43,9 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
           aws-region: ${{ matrix.region }}
-      - name: List S3 buckets (${{ matrix.region }})
+      - name: Get Regional IoT Core Endpoint (${{ matrix.region }})
         run: |
-          aws s3api list-buckets --region "${{ matrix.region }}"
+          aws iot describe-endpoint --endpoint-type iot:Data-ATS | jq -r .endpointAddress
       # - name:  Setup Terraform with specified version on the runner
       #   uses: hashicorp/setup-terraform@v2
       #   with:
