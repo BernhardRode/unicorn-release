@@ -1,5 +1,5 @@
 name: Review or deploy Terraform changes
-run-name: ${{ github.actor }} running on a merge 🚀
+
 on:
   push:
     tags:
