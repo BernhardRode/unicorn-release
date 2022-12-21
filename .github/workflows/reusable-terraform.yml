@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 jobs:
-  tf-plan:
+  terraform:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

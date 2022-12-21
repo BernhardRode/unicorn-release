@@ -15,6 +15,7 @@ jobs:
       paths_released: ${{ steps.release.outputs.paths_released }}
     steps:
       - name: "Update Release Please PR"
+        if: ${{ github.ref == 'refs/heads/main' }}
         id: release
         uses: google-github-actions/release-please-action@v3
         with:
@@ -31,19 +32,19 @@ jobs:
     steps:
       - name: Terraform Development Environment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: './.github/workflows/reusable-deploy-api.yml'
+        uses: '.github/workflows/reusable-deploy-api.yml'
         with:
           environment: Development
           location: ${{ matrix.location }}
       - name: Terraform Staging Environment
         if: ${{ github.ref == 'refs/heads/main' && !steps.release.outputs.release_created }}
-        uses: './.github/workflows/reusable-deploy-api.yml'
+        uses: '.github/workflows/reusable-deploy-api.yml'
         with:
           environment: Staging
           location: ${{ matrix.location }}
       - name: Terraform Production Environment
         if: ${{ github.ref == 'refs/heads/main' && steps.release.outputs.release_created }}
-        uses: './.github/workflows/reusable-deploy-api.yml'
+        uses: '.github/workflows/reusable-deploy-api.yml'
         with:
           environment: Production
           location: ${{ matrix.location }}
