@@ -36,7 +36,7 @@ jobs:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v3
       - name: Sets env vars for release (PR)
-        if: ${{ github.ref != 'refs/heads/main' && github.action_ref == 'pull_request' }}
+        if: ${{ github.ref != 'refs/heads/main' && github.event_name == 'pull_request' }}
         run: echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
 
       # - name: Sets env vars for release (DEVELOPMENT)
