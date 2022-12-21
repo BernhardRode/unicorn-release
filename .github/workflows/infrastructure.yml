@@ -31,11 +31,11 @@ jobs:
         working-directory: ./terraform
 
     steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v3
       - name: Environment
         run: |
           env
-      # - name: Checkout the repository to the runner
-      #   uses: actions/checkout@v3
       # - name: Configure AWS Credentials
       #   uses: aws-actions/configure-aws-credentials@v1-node16
       #   with:
