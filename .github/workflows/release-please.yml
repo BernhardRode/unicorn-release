@@ -14,15 +14,18 @@ jobs:
     outputs:
       paths_released: ${{ steps.release.outputs.paths_released }}
     steps:
-      - name: "Update Release Please PR"
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Faker
         id: release
-        uses: google-github-actions/release-please-action@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          command: manifest
-          config-file: .github/release-please-config.json
-          manifest-file: .github/release-please-manifest.json
+        run: echo "release_created=true" >> $GITHUB_OUTPUT
+      # - name: Update Release Please PR
+      #   if: ${{ github.ref == 'refs/heads/main' }}
+      #   id: release
+      #   uses: google-github-actions/release-please-action@v3
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     command: manifest
+      #     config-file: .github/release-please-config.json
+      #     manifest-file: .github/release-please-manifest.json
   terraform:
     needs: release-please
     runs-on: ubuntu-latest
