@@ -102,8 +102,6 @@ jobs:
       # - name: Terraform Apply (Staging)
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       #   run: echo "deploy to stage - staging"
-      - name: Terraform Apply
-        run: echo "deploy to environment -  ${{ inputs.location }}
       - name: 🚨 Expose my secret
         env:
           ENV_SECRET_INTERNAL: ${{ secrets.ENV_SECRET }}
