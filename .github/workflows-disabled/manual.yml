@@ -13,19 +13,18 @@ on:
         default: 'eu-central-1'
         options:
           - eu-central-1
-      environment:
-        description: 'Target Environment'
-        required: true
-        type: choice
-        default: 'Staging'
-        options:
-          - Development
-          - Staging
-          - Production
+      # environment:
+      #   description: 'Target Environment'
+      #   required: true
+      #   type: choice
+      #   default: 'Staging'
+      #   options:
+      #     - Development
+      #     - Staging
+      #     - Production
 jobs:
   terraform:
     uses: './.github/workflows/reusable-terraform.yml'
     with:
-      environment: ${{ github.event.inputs.environment }}
-      location: ${{ github.event.inputs.location }}
+      location: ${{ inputs.location }}
     secrets: inherit
