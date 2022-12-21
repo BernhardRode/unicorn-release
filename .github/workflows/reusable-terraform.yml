@@ -2,8 +2,8 @@ name: Reusable Terraform
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   # workflow_call:
   #   inputs:
   #     location:
@@ -29,12 +29,6 @@ jobs:
         shell: bash
         # We keep Terraform files in the terraform directory.
         working-directory: ./terraform
-    strategy:
-      matrix:
-        region:
-          - eu-central-1
-          - eu-west-1
-          - eu-west-2
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v3

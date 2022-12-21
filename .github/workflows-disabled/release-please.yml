@@ -33,20 +33,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Terraform Development Environment
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: './.github/actions/terraform'
         with:
-          environment: Development
-          location: ${{ matrix.location }}
+          environment: development
+          region: ${{ matrix.region }}
       - name: Terraform Staging Environment
         if: ${{ github.ref == 'refs/heads/main' && !needs.release-please.outputs.release_created }}
         uses: './.github/actions/terraform'
         with:
-          environment: Staging
-          location: ${{ matrix.location }}
+          environment: staging
+          region: ${{ matrix.region }}
       - name: Terraform Production Environment
         if: ${{ github.ref == 'refs/heads/main' && needs.release-please.outputs.release_created }}
         uses: './.github/actions/terraform'
         with:
-          environment: Production
-          location: ${{ matrix.location }}
+          environment: production
+          region: ${{ matrix.region }}
