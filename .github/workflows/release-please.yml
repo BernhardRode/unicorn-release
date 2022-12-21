@@ -25,6 +25,8 @@ jobs:
           default-branch: main
           release-type: node
   terraform:
+    needs: release-please
+    secrets: inherit
     runs-on: ubuntu-latest
     strategy:
       matrix:
