@@ -1,1 +1,11 @@
-{}
+{
+  "separate-pull-requests": false,
+  "packages": {
+    "apps/backend": {},
+    "apps/frontend": {},
+    "packages/config": {},
+    "packages/schema": {},
+    "packages/ui": {},
+    "packages/utils": {}
+  }
+}
