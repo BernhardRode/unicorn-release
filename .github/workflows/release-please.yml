@@ -29,28 +29,24 @@ jobs:
   terraform:
     needs: release-please
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        location:
-          - eu-central-1
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Terraform Development Environment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: './.github/actions/terraform'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Development
           location: ${{ matrix.location }}
       - name: Terraform Staging Environment
         if: ${{ github.ref == 'refs/heads/main' && !needs.release-please.outputs.release_created }}
-        uses: './.github/actions/terraform'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Staging
           location: ${{ matrix.location }}
       - name: Terraform Production Environment
         if: ${{ github.ref == 'refs/heads/main' && needs.release-please.outputs.release_created }}
-        uses: './.github/actions/terraform'
+        uses: './.github/workflows/reusable-terraform.yml'
         with:
           environment: Production
           location: ${{ matrix.location }}
