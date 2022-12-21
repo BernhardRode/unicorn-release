@@ -43,13 +43,13 @@ jobs:
           environment: Development
           location: ${{ matrix.location }}
       - name: Terraform Staging Environment
-        if: ${{ github.ref == 'refs/heads/main' && !steps.release.outputs.release_created }}
+        if: ${{ github.ref == 'refs/heads/main' && !needs.release-please.outputs.release_created }}
         uses: './.github/actions/terraform'
         with:
           environment: Staging
           location: ${{ matrix.location }}
       - name: Terraform Production Environment
-        if: ${{ github.ref == 'refs/heads/main' && steps.release.outputs.release_created }}
+        if: ${{ github.ref == 'refs/heads/main' && needs.release-please.outputs.release_created }}
         uses: './.github/actions/terraform'
         with:
           environment: Production
