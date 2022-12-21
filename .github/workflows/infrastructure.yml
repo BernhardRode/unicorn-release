@@ -35,6 +35,7 @@ jobs:
       - name: Sets env vars for release
         run: |
           echo "CPS_ENVIRONMENT=development" >> $GITHUB_ENV
+          echo "CPS_ENVIRONMENT_2=development" >> $GITHUB_ENV
       - name: Environment
         run: |
           env | sort
