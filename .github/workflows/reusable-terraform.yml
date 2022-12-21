@@ -45,7 +45,7 @@ jobs:
           aws-region: ${{ matrix.region }}
       - name: List S3 buckets (${{ matrix.region }})
         run: |
-          aws s3 ls
+          aws s3api list-buckets --region "${{ matrix.region }}"
       # - name:  Setup Terraform with specified version on the runner
       #   uses: hashicorp/setup-terraform@v2
       #   with:
