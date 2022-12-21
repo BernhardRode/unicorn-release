@@ -1,5 +1,8 @@
 {
-  ""
+  "draft": false,
+  "prerelease": true,
+  "skip-github-release": false,
+  "pull-request-title-pattern": "chore${scope}: 🚀 release ${component} ${version}",
   "separate-pull-requests": false,
   "packages": {
     "apps/backend": {},
