@@ -38,19 +38,19 @@ jobs:
         uses: actions/checkout@v3
       - name: Terraform Development Environment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: './.github/workflows/reusable-terraform.yml'
+        uses: './.github/actions/terraform'
         with:
           environment: Development
           location: ${{ matrix.location }}
       - name: Terraform Staging Environment
         if: ${{ github.ref == 'refs/heads/main' && !steps.release.outputs.release_created }}
-        uses: './.github/workflows/reusable-terraform.yml'
+        uses: './.github/actions/terraform'
         with:
           environment: Staging
           location: ${{ matrix.location }}
       - name: Terraform Production Environment
         if: ${{ github.ref == 'refs/heads/main' && steps.release.outputs.release_created }}
-        uses: './.github/workflows/reusable-terraform.yml'
+        uses: './.github/actions/terraform'
         with:
           environment: Production
           location: ${{ matrix.location }}
