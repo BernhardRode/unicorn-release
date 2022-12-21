@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Faker
         id: release
-        run: echo "release_created=true" >> $GITHUB_OUTPUT
+        run: echo true
       # - name: Update Release Please PR
       #   if: ${{ github.ref == 'refs/heads/main' }}
       #   id: release
