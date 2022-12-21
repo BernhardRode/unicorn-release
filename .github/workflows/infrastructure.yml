@@ -36,19 +36,37 @@ jobs:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v3
       - name: Sets env vars for release (PR)
-        if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
+        if: github.ref != 'refs/heads/main' && github.event.name == 'pull_request'
         env:
           ENVIRONMENT: github.head.name
         run: |
           echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+      # - name: Sets env vars for release (DEVELOPMENT)
+      #   if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
+      #   env:
+      #     ENVIRONMENT: github.head.name
+      #   run: |
+      #     echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+      # - name: Sets env vars for release (STAGING)
+      #   if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
+      #   env:
+      #     ENVIRONMENT: github.head.name
+      #   run: |
+      #     echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+      # - name: Sets env vars for release (PRODUCTION)
+      #   if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
+      #   env:
+      #     ENVIRONMENT: github.head.name
+      #   run: |
+      #     echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
       - name: Environment
         run: |
           env | sort
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
-        with:
-          role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
-          aws-region: eu-central-1
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v1-node16
+      #   with:
+      #     role-to-assume: arn:aws:iam::828226612169:role/Cps-GitHub-Actions
+      #     aws-region: eu-central-1
 
       # - name: Setup Terraform with specified version on the runner
       #   uses: hashicorp/setup-terraform@v2
