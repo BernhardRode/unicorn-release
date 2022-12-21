@@ -56,5 +56,5 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: echo "deploy to stage - staging"
       - name: Terraform Apply (Production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push' && ${{ steps.release.outputs.releases_created }}
         run: echo "deploy to stage - production"
