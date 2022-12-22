@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+  release:
+    types: [prereleased, published]
 
 env:
   # verbosity setting for Terraform logs
@@ -37,22 +39,24 @@ jobs:
       - name: Sets env vars for release (DEVELOPMENT)
         if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
         env:
-          ENVIRONMENT: development-${{ format( github.head_ref, '/', '-') }}
+          ENVIRONMENT: development
         run: |
           echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
 
-      # - name: Sets env vars for release (STAGING)
-      #   if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
-      #   env:
-      #     ENVIRONMENT: github.head.name
-      #   run: |
-      #     echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+      - name: Sets env vars for release (STAGING)
+        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+        env:
+          ENVIRONMENT: development
+        run: |
+          echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+
       # - name: Sets env vars for release (PRODUCTION)
-      #   if: github.ref == 'refs/heads/main' && github.event.name == 'pull_request'
-      #   env:
-      #     ENVIRONMENT: github.head.name
-      #   run: |
-      #     echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+      # if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+      # env:
+      #   ENVIRONMENT: development
+      # run: |
+      #   echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+
       - name: Environment
         run: |
           env | sort
