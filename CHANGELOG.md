@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/bosch-engineering/cubanops-rbo2abt/compare/v1.0.2...v1.1.0) (2022-12-22)
+
+
+### Features
+
+* a new feat 10191 ([fce376a](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/fce376a73c5b2b96dd477f10bdbd8f09ba9063db))
+
+
+### Bug Fixes
+
+* a new fix 26487 ([3016338](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/3016338b70380956a76765c00acf044214f201a7))
+* a new fix 28296 ([7cd5095](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/7cd50955334d5d61edc8f35f32fa69a6acd6a477))
+
 ## [1.0.2](https://github.com/bosch-engineering/cubanops-rbo2abt/compare/v1.0.1...v1.0.2) (2022-12-22)
 
 
