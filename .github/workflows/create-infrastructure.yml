@@ -1,4 +1,4 @@
-name: Reusable Terraform
+name: Terraform
 
 on:
   push:
@@ -7,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-  release:
-    types: [prereleased, published]
 
 env:
   # verbosity setting for Terraform logs
@@ -29,34 +27,6 @@ jobs:
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v3
-      - name: Sets env vars for release (PR)
-        if: ${{ github.ref != 'refs/heads/main' && github.event_name == 'pull_request' }}
-        env:
-          ENVIRONMENT: development-${{ format( github.head_ref, '/', '-') }}
-        run: |
-          echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
-
-      - name: Sets env vars for release (DEVELOPMENT)
-        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
-        env:
-          ENVIRONMENT: development
-        run: |
-          echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
-
-      - name: Sets env vars for release (STAGING)
-        if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
-        env:
-          ENVIRONMENT: development
-        run: |
-          echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
-
-      # - name: Sets env vars for release (PRODUCTION)
-      # if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
-      # env:
-      #   ENVIRONMENT: development
-      # run: |
-      #   echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
-
       - name: Environment
         run: |
           env | sort
