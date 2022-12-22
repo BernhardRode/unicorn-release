@@ -1,7 +1,6 @@
 name: Reusable Terraform
 
 on:
-  tag:
   push:
     branches:
       - main
