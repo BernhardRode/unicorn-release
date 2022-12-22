@@ -6,15 +6,25 @@ on:
       - main
 
 jobs:
-  release-please:
+  release_please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
           draft: true
-          prerelease: true
-          skip-github-release: false
-          pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
-          extra-files: |
-            README.md
+          # prerelease: true
+          # skip-github-release: false
+          # pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
+          # extra-files: |
+          #   README.md
+  github_build:
+    runs-on: ubuntu-latest
+    needs: release_please
+    if: ${{ needs.release_please.outputs.release_created == 'true' }}
+    steps:
+      - name: Terraform
+        uses: ./.github/actions/terraform
