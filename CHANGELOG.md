@@ -1,5 +1,88 @@
 # Changelog
 
+## [3.0.0](https://github.com/bosch-engineering/cubanops-rbo2abt/compare/v2.0.0...v3.0.0) (2022-12-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* Awesome
+
+### Features
+
+* 435wtzgsdg s gfsadfgsdfg ([f0b17a6](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/f0b17a6b0a33cc1b08f1e77188c140c73ff9923d)), closes [#123](https://github.com/bosch-engineering/cubanops-rbo2abt/issues/123)
+* a new feat 10191 ([fce376a](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/fce376a73c5b2b96dd477f10bdbd8f09ba9063db))
+* a new feature 10014 ([12f3814](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/12f3814c7345ebe19cf76c4b7a05b7931bd62a24))
+* a new feature 10136 ([09502de](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/09502dec33d1fe51af01afd606c07d2a8c5e4dd3))
+* a new feature 10507 ([55c749e](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/55c749e61588049b82c22c2049ea3c5e56ddf012))
+* a new feature 13890 ([3542558](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/354255809416cc07d2f13904126d9c5763e730b3))
+* a new feature 13929 ([e1842c8](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/e1842c8f0548a65f2ccc0ff6c719036516f71b38))
+* a new feature 14517 ([456071e](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/456071e3bae04ba89cf773e7b952995cd94542f2))
+* a new feature 14658 ([f50017f](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/f50017f41a98cd58a8ddc243d0124ac613e4c0ee))
+* a new feature 1614 ([82396aa](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/82396aab8e87bc91977ce9825eb69980bede0248))
+* a new feature 16686 ([0ad11cb](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/0ad11cba50bccd28e78efa35e1961facefeae8a2))
+* a new feature 18555 ([bb0a2ae](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/bb0a2ae2d3fc036a9adcc23eb63fed937c1fc65c))
+* a new feature 20329 ([77990ee](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/77990eef9218a10ca89f525006cf9de0d34fa976))
+* a new feature 2050 ([6c3c1e4](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/6c3c1e4552d6597f99408a7414b29370245ceaa7))
+* a new feature 21761 ([5cb9010](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/5cb901074a94df4ecbda7ca2a1eea83977ae3daf))
+* a new feature 21930 ([c11302a](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/c11302a94a81965dd340fa41ad10e55e11141e61))
+* a new feature 22489 ([354852e](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/354852efadaa3bca71c8c4468a65e130c435e9df))
+* a new feature 23672 ([187702b](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/187702b2f16fa7402c7f0e7e20920441acdc8817))
+* a new feature 2528 ([6aaf9af](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/6aaf9af539fc82a99036c2fe75de68bed42fe944))
+* a new feature 26049 ([c0ab4f6](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/c0ab4f6b1561fb83f7228d09d5c5906fc395e683))
+* a new feature 27957 ([26cbb2d](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/26cbb2d8953ac3203bd8c7f4610c03ac2fb985b0))
+* a new feature 28070 ([869c906](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/869c90643893d7b0a749b9c5696de37c5cf6261c))
+* a new feature 29113 ([42f8775](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/42f877593d8f001b3c9689dafab8ab88890bbb51))
+* a new feature 29371 ([79aae4e](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/79aae4e3f2fd014cdfe50fc687d83debe1c2b243))
+* a new feature 30157 ([3cf49c1](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/3cf49c14d6ed3b5d173918dea3c44360c0ec02e2))
+* a new feature 31140 ([853b507](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/853b507f1d981ff8adc7a0b3b6650cc18dfe2a1a))
+* a new feature 31192 ([2050493](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/20504936c6a85035e069582baf4ebda49894fcb4))
+* a new feature 31296 ([14c8dc2](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/14c8dc2ebc20dde9a0488df2e057b6c7fe7569c1))
+* a new feature 31924 ([22e4b4d](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/22e4b4d8a9c494223e9de45711edde35fc180888))
+* a new feature 32200 ([837e639](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/837e639831ad7e74b724ac8abf47a2196bdb5d3a))
+* a new feature 32463 ([d0a4aab](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/d0a4aab3114e888e686a091e534cea87af6b91f5))
+* a new feature 32686 ([38925e3](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/38925e347200124b48bfc82ea9b0a42b6d3ec36e))
+* a new feature 3476 ([6d5f325](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/6d5f325926a655c8e1de036d584feec0bed432de))
+* a new feature 3622 ([ad5bb2d](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/ad5bb2dae1362464b76a567bcc9e60528f4acbe9))
+* a new feature 7359 ([10a85a8](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/10a85a8ee45dd56e86e0843fd8b3762bd2dcf077))
+* a new feature 7385 ([d63e0c5](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/d63e0c58e515350deec2217c77b2bb8007e9fcb6))
+* add a console.log ([71c4588](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/71c45889d5d0ba2d4a8d84d22fdcac6bb5773c84))
+* add base monorepo ([f813499](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/f813499e0f4af6ea4e5dd82740a3bae1c4803243))
+* add emojis and develop branch ([50f7565](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/50f75658ce3805415c92ebbe59870f12daaf299e))
+* add new tasks ([98e3dbe](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/98e3dbe42d3e6f7f4ae21d71164e67b66fd20bf0))
+* add ort task ([60180e4](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/60180e4bcb52441da4b5ece591ea6c49ad924adf))
+* add prerelease ([ff3aa17](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/ff3aa1704489b7cc85d0ac2ba0f093ae3995b671))
+* add prerelease and only config via release please yaml ([5191389](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/5191389693c6c96e14cbd14debbbbec64e815c6a))
+* add semantic release configuration and github action base ([9f70b22](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/9f70b22434e45c156cc9a7b4d84ef0a2539447b9))
+* allowDynamicVersions: true ([fe55936](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/fe559365a0c96afb98e5aa5f6292b0ddf12dc4e1))
+* give the pipeline a proper name ([2901ba7](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/2901ba77ec82abe099b6b3c6658b2b021e7ddafc))
+* move to release please by google ([1073fa5](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/1073fa5e8ffab48041172abe5fb8377104d153d8))
+* run latest verison of art ([ccfdb40](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/ccfdb40f1cdc7689f9ce768935b5118eb6178837))
+* run ort on push to main ([27cf117](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/27cf117663d28232f78232823194984c698a741b))
+
+
+### Bug Fixes
+
+* a new fix 1402 ([88578b7](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/88578b73c0b2229db6562ecb43c802c31f107c01))
+* a new fix 15628 ([5e0606c](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/5e0606c280f5e9f25e9c13b53bae42a8ff999e4c))
+* a new fix 24243 ([25b8e3d](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/25b8e3d63cd6e442eccb344d23d8cbb1cd888e14))
+* a new fix 25068 ([95c281b](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/95c281b5902c7be997f4c82ddae3b48582aa54c1))
+* a new fix 26384 ([c952708](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/c95270826bcfbdf3ff7e1ed9dc454c2bd6faa8d1))
+* a new fix 26487 ([3016338](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/3016338b70380956a76765c00acf044214f201a7))
+* a new fix 28296 ([7cd5095](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/7cd50955334d5d61edc8f35f32fa69a6acd6a477))
+* a new fix 30258 ([b24e9e7](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/b24e9e7bf949288eaec935043db4b1eb6ca80af7))
+* a new fix 31246 ([010ffff](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/010ffff3bb38852e7618f628b459c08110b70bd0))
+* a new fix 31619 ([352ddd5](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/352ddd5b01b259f7de12467eeee169110aa7c209))
+* move ort config to .ort ([0483230](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/0483230a42662d2687586b491110c68d862e0bb7))
+* name of task ([e14619f](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/e14619f3f3d3e8197c26ec8ce981aca954cdf848))
+* naming of files ([c313fe8](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/c313fe845257202253b324c3da92dde25f520a24))
+* no latest so take ort - v0.1.2 ([3a17e51](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/3a17e516d6bafcca09c574a7f968a7b7571b30d3))
+* only a simple fix ([f60a8b7](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/f60a8b757e365b0ed5bbc688ed585528cf040b10))
+* only a simple fix ([66f90a9](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/66f90a945cd68eba2240ab75f4b19474f41a2932))
+* only a simple fix ([9040559](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/9040559131f3ccdd3450ef08317bb3de57fd0e63))
+* only a simple fix ([3e8b03e](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/3e8b03eb58784009dc006f3061520edbdcb0ce84))
+* remove CHANGELOG ([6c082da](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/6c082dac002d9a36165e577d00f04c79018cc4d2))
+* rename file ([33e99af](https://github.com/bosch-engineering/cubanops-rbo2abt/commit/33e99afd321aead0bab1fdc12325f2e7770bebe7))
+
 ## [2.0.0](https://github.com/bosch-engineering/cubanops-rbo2abt/compare/v1.1.0...v2.0.0) (2022-12-22)
 
 
