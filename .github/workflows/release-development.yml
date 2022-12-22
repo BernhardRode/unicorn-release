@@ -1,0 +1,19 @@
+name: Release to Development Stage
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v3
+      - name: Sets env vars for release (DEVELOPMENT)
+        env:
+          ENVIRONMENT: development
+        run: |
+          echo "CPS_ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
