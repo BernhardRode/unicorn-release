@@ -23,8 +23,7 @@ jobs:
     environment:
       name: ${{ github.event.inputs.env }}
     steps:
-      - shell: bash
-        run: echo "${{ github.event.inputs.tag }}"
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/reusable-deploy.yml
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
