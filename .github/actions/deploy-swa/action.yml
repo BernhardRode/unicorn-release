@@ -14,6 +14,9 @@ inputs:
   ref:
     description: Target ref
     required: false
+  tag:
+    description: Target tag
+    required: false
 
 runs:
   using: "composite"
@@ -23,7 +26,7 @@ runs:
       shell: bash
     - uses: actions/checkout@v4
       with:
-        ref: ${{ github.event.inputs.ref }}
+        tag: ${{ github.event.inputs.tag }}
     - shell: bash
       run: git rev-parse HEAD
     - shell: bash
