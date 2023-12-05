@@ -21,7 +21,7 @@ runs:
     # - shell: bash
     #   run: env
     - shell: bash
-      run: echo '${{ event.deployment.environment }}
+      run: echo '${{ github.event.deployment.environment }}
     - uses: actions/checkout@v4
     - shell: bash
       run: echo '${{ toJSON(github) }}
