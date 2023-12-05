@@ -1,9 +1,9 @@
 {
-  ".": "0.0.0",
+  ".": "1.0.0",
   "apps/backend": "0.0.0",
-  "apps/frontend": "0.0.0",
+  "apps/frontend": "1.0.0",
   "packages/config": "0.0.0",
-  "packages/schema": "0.0.0",
-  "packages/ui": "0.0.0",
-  "packages/utils": "0.0.0"
+  "packages/schema": "1.0.0",
+  "packages/ui": "1.0.0",
+  "packages/utils": "1.0.0"
 }
