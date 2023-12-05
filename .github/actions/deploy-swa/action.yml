@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: echo "${{ github.event.inputs.ref }}"
+      run: echo "${{ event.inputs.ref }}"
     # - shell: bash
       # run: echo ${{ github }}
     # - shell: bash
