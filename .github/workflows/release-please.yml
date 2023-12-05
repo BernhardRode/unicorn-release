@@ -12,7 +12,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4.0.0
-        with:
-          release-type: node
-          config-file: .github/release-please-config.json
-          manifest-file: .github/release-please-manifest.json

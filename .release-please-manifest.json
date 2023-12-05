@@ -1,5 +1,6 @@
 {
   ".": "0.0.0",
+  "apps/backend": "0.0.0",
   "apps/frontend": "0.0.0",
   "packages/config": "0.0.0",
   "packages/schema": "0.0.0",
