@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - name: Output GitHub Variable
-      run: echo ${{ jsonencode(github) }}
+      run: echo ${{ toJSON(github) }}
       shell: bash
     - uses: actions/checkout@v4
       with:
