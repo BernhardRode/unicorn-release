@@ -24,7 +24,7 @@ jobs:
       name: ${{ github.event.inputs.env }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/deploy-swa
+      - uses: ./.github/actions/deploy-swa@main
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
