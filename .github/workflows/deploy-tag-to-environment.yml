@@ -28,4 +28,4 @@ jobs:
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          tag: ${{ github.event.inputs.target-tag }}
+          target-tag: ${{ github.event.inputs.target-tag }}

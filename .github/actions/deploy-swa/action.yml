@@ -11,10 +11,10 @@ inputs:
     description: Target environment
     required: true
     default: development
-  ref:
+  target-ref:
     description: Target ref
     required: false
-  tag:
+  target-tag:
     description: Target tag
     required: false
 
@@ -26,7 +26,9 @@ runs:
       shell: bash
     - uses: actions/checkout@v4
       with:
-        tag: ${{ github.event.inputs.tag }}
+        tag: ${{ github.event.inputs.target-tag }}
+    - shell: bash
+      run: echo ${{ github.event.inputs.target-tag }}
     - shell: bash
       run: git rev-parse HEAD
     # - shell: bash
