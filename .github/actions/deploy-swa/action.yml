@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - name: Output GitHub Variable
-      run: echo "$GITHUB_CONTEXT" | jq .
+      run: echo ${{ JSON.stringify(github.event.inputs.ref) }}
       shell: bash
     - uses: actions/checkout@v4
       with:
