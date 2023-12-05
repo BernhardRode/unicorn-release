@@ -33,4 +33,4 @@ jobs:
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          ref: github.event.ref
+          ref: ${{ github.event.ref }}
