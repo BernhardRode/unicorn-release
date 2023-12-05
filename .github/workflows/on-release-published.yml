@@ -1,8 +1,9 @@
 name: 🏷️ On push "tags"
 
-on:
-  release:
-    types: [published]
+on:  
+  push:
+    tags:
+      - '*'
 
 jobs:
   staging:
