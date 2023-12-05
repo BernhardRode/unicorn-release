@@ -23,13 +23,9 @@ jobs:
     environment:
       name: ${{ github.event.inputs.env }}
     steps:
-      - shell: bash
-        run: echo "${{ github.event.inputs.target-tag }}"
-      - shell: bash
-        run: env
-      # - uses: actions/checkout@v4
-      # - uses: ./.github/actions/deploy-swa
-      #   with:
-      #     deployment-token: secrets.DEPLOYMENT_TOKEN
-      #     github-token: secrets.GITHUB_TOKEN
-      #     ref: ${{ github.event.inputs.target-tag }}
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/deploy-swa
+        with:
+          deployment-token: secrets.DEPLOYMENT_TOKEN
+          github-token: secrets.GITHUB_TOKEN
+          ref: ${{ github.event.inputs.target-tag }}
