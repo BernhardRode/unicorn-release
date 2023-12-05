@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: echo "${{ github.event.inputs.ref }}"
+      run: echo "${{ ${{ github.event.inputs.target-tag }} }}"
     # - shell: bash
       # run: echo ${{ github }}
     # - shell: bash
