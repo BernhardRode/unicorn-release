@@ -28,7 +28,6 @@ jobs:
         run: echo ${{ github.event.inputs.target-tag }}
       - shell: bash
         run: echo ${{ github.event.inputs.target-env }}
-
       - uses: ./.github/actions/deploy-swa
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
