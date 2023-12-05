@@ -7,13 +7,6 @@ inputs:
   deployment-token:
     description: Azure Static Web App Deployment Token
     required: true
-  env:
-    description: Target environment
-    required: true
-    default: development
-  ref:
-    description: Target ref
-    required: false
 
 runs:
   using: "composite"

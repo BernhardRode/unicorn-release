@@ -3,7 +3,7 @@ name: 🧪 Manually deploy tag to a environment
 on:
   workflow_dispatch:
     inputs:
-      target-tag:
+      tag:
         description: 'Tag to deploy'
         default: 'v2.0.0'
         required: true
@@ -23,11 +23,12 @@ jobs:
     environment:
       name: ${{ github.event.inputs.env }}
     steps:
+      - shell: bash
+        run: echo "${{ github.event.inputs.tag }}"
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.target-tag }}
+          ref: ${{ github.event.inputs.tag }}
       - uses: ./.github/actions/deploy-swa
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          ref: ${{ github.event.inputs.target-tag }}
