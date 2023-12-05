@@ -18,8 +18,13 @@ inputs:
 runs:
   using: "composite"
   steps:
+    # - shell: bash
+    #   run: env
     - shell: bash
-      run: env
+      run: echo '${{ event.deployment.environment }}
+    - uses: actions/checkout@v4
+    - shell: bash
+      run: echo '${{ toJSON(github) }}
     - uses: actions/checkout@v4
       with:
         ref: ${{ github.event.inputs.target-ref }}
