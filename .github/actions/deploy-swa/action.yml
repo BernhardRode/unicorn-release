@@ -19,19 +19,10 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: echo ${{ github.event.inputs.target-tag }}
-    # - name: Output GitHub Variable
-    #   run: echo ${{ toJSON(github.event) }}
-    #   shell: bash
+      run: env
     - uses: actions/checkout@v4
       with:
-        ref: ${{ github.event.inputs.target-tag }}
-    - shell: bash
-      run: git rev-parse HEAD
-    # - shell: bash
-    #   run: echo ${{ github.event.inputs.ref }}
-    # - run: echo ${{ github.event_name }}
-    #   shell: bash
+        ref: ${{ github.event.inputs.target-ref }}
     # - if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed') || github.event_name == 'workflow_dispatch'
     #   name: Build And Deploy
     #   id: builddeploy
