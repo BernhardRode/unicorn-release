@@ -28,7 +28,7 @@ runs:
     #   shell: bash
     - uses: actions/checkout@v4
       with:
-        tag: ${{ github.event.inputs.target-tag }}
+        ref: ${{ github.event.inputs.target-tag }}
     - shell: bash
       run: git rev-parse HEAD
     # - shell: bash
