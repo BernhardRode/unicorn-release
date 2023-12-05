@@ -18,8 +18,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - shell: bash
-    #   run: env
+    - shell: bash
+      run: echo "${{ github.event.inputs.ref }}"
     # - shell: bash
       # run: echo ${{ github }}
     # - shell: bash
