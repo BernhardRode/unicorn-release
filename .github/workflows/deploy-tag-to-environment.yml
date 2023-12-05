@@ -7,7 +7,7 @@ on:
         description: 'Tag to deploy'
         default: 'v2.0.0'
         required: true
-      target-env:
+      env:
         description: 'Environment to deploy to'
         type: choice
         options:
@@ -21,11 +21,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.event.inputs.target-env }}
+      name: ${{ github.event.inputs.env }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/deploy-swa
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          target-ref: ${{ github.event.inputs.target-tag }}
+          ref: ${{ github.event.inputs.target-tag }}

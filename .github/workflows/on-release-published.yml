@@ -19,7 +19,7 @@ jobs:
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          target-env: staging
+          env: staging
   production:
     runs-on: ubuntu-latest
     needs: staging
@@ -31,4 +31,4 @@ jobs:
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
-          target-env: production
+          env: production
