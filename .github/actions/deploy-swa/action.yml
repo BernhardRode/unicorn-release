@@ -18,15 +18,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - shell: bash
-      run: echo "${{ github.event.inputs.target-tag }}"
-    # - shell: bash
-      # run: echo ${{ github }}
-    # - shell: bash
-    # #   run: echo ${{ toJSON(github) }}
-    # - uses: actions/checkout@v4
-    #   with:
-    #     ref: "${{ github.inputs.ref }}"
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.target-tag }}
     # - if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed') || github.event_name == 'workflow_dispatch'
     #   name: Build And Deploy
     #   id: builddeploy
