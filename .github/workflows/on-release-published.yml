@@ -1,9 +1,12 @@
 name: 🏷️ On push "tags"
 
-on:  
+on:
   push:
     tags:
       - '*'
+  release:
+    types:
+      - created
 
 jobs:
   staging:
