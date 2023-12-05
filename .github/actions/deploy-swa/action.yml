@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - name: Output GitHub Variable
-      run: echo ${{ fromJSON(github.event) }}
+      run: echo ${{ github.event }}
       shell: bash
     - uses: actions/checkout@v4
       with:
