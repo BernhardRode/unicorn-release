@@ -25,8 +25,7 @@ jobs:
     steps:
       - shell: bash
         run: echo "${{ github.event.inputs.tag }}"
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/deploy-swa
+      - uses: ./.github/workflows/reusable-deploy
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
