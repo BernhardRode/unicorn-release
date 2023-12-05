@@ -1,0 +1,23 @@
+name: 🌟 Push on "main"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/deploy-swa
+        with:
+          deployment-token: secrets.DEPLOYMENT_TOKEN
+          github-token: secrets.GITHUB_TOKEN

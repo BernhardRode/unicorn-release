@@ -1,0 +1,30 @@
+name: 🏷️ On push "tags"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/deploy-swa
+        with:
+          deployment-token: secrets.DEPLOYMENT_TOKEN
+          github-token: secrets.GITHUB_TOKEN
+          target-env: staging
+  production:
+    runs-on: ubuntu-latest
+    needs: staging
+    environment:
+      name: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/deploy-swa
+        with:
+          deployment-token: secrets.DEPLOYMENT_TOKEN
+          github-token: secrets.GITHUB_TOKEN
+          target-env: production

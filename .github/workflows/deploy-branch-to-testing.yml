@@ -1,0 +1,16 @@
+name: 🧪 Manually deploy branch to "testing"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: testing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/deploy-swa
+        with:
+          deployment-token: secrets.DEPLOYMENT_TOKEN
+          github-token: secrets.GITHUB_TOKEN

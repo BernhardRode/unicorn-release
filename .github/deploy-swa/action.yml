@@ -1,0 +1,30 @@
+name: Deploy Azure Static Web App
+description: 'Deploy Azure Static Web App'
+inputs:
+  github-token:
+    description: GitHub Token
+    required: true
+  deployment-token:
+    description: Azure Static Web App Deployment Token
+    required: true
+  target-env:
+    description: Target environment
+    required: true
+    default: development
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+    - run: echo ${{ github.event_name }}
+      shell: bash
+    - if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed') || github.event_name == 'workflow_dispatch'
+      name: Build And Deploy
+      id: builddeploy
+      shell: bash
+      run: echo "Deploy - TO:${{ github.event.inputs.target-env }}"
+    - if: github.event_name == 'pull_request' && github.event.action == 'closed'
+      name: Close Pull Request
+      id: closepullrequest
+      shell: bash
+      run: echo "Deploy - TO:${{ github.event.inputs.target-env }}"
