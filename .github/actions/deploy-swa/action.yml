@@ -22,9 +22,8 @@ runs:
     #   run: env
     # - shell: bash
       # run: echo ${{ github }}
-    - uses: actions/checkout@v4
     - shell: bash
-      run: echo '${{ toJSON(github) }}
+      run: echo ${{ toJSON(github) }}
     - uses: actions/checkout@v4
       with:
         ref: ${{ github.event.inputs.target-ref }}
