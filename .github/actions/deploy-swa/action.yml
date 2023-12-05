@@ -18,6 +18,9 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Output GitHub Variable
+      run: echo "$GITHUB_CONTEXT" | jq .
+      shell: bash
     - uses: actions/checkout@v4
       with:
         ref: ${{ github.event.inputs.ref }}
