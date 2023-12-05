@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       target-tag:
-        description: "Tag to use"
+        description: 'Tag to use'
         required: true
       target-env:
-        description: "Environment to use"
+        description: 'Environment to use'
         type: choice
         options:
           - development
