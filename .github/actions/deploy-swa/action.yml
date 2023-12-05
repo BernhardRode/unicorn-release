@@ -7,6 +7,9 @@ inputs:
   deployment-token:
     description: Azure Static Web App Deployment Token
     required: true
+  tag:
+    description: Target tag
+    required: false
 
 runs:
   using: "composite"

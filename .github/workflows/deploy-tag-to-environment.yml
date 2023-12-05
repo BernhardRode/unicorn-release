@@ -26,9 +26,8 @@ jobs:
       - shell: bash
         run: echo "${{ github.event.inputs.tag }}"
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.tag }}
       - uses: ./.github/actions/deploy-swa
         with:
           deployment-token: secrets.DEPLOYMENT_TOKEN
           github-token: secrets.GITHUB_TOKEN
+          ref: ${{ github.event.inputs.tag }}
