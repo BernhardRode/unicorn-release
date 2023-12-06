@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.1.0](https://github.com/BernhardRode/unicorn-release/compare/v2.0.0...v2.1.0) (2023-12-05)
+
+
+### Features
+
+* ole ([6d55d74](https://github.com/BernhardRode/unicorn-release/commit/6d55d74085017d63698f25f052a52358aa629533))
+* ole ([71acecb](https://github.com/BernhardRode/unicorn-release/commit/71acecbfd762ddeba89c48143bbf0dc88c6739ad))
+* ole ([04760b6](https://github.com/BernhardRode/unicorn-release/commit/04760b6b3d1135a0c86d5d392ba32b2fcb7b4c17))
+* ole ([ab97965](https://github.com/BernhardRode/unicorn-release/commit/ab9796581dd0f41dd8db786992f9ac7da919d1d3))
+
+
+### Bug Fixes
+
+* wip ([ce70cfc](https://github.com/BernhardRode/unicorn-release/commit/ce70cfcde3f0670a1276cc3cd132eee3347aa9b3))
+* wip ([c0e88c7](https://github.com/BernhardRode/unicorn-release/commit/c0e88c796cc4a956ec097c5f2d06e8a762a2e8e0))
+* wip ([0d47056](https://github.com/BernhardRode/unicorn-release/commit/0d47056fd3ee79ef3c65862aa2f926533b02c483))
+* wip ([e1b6f76](https://github.com/BernhardRode/unicorn-release/commit/e1b6f76f252ff5268df944d1a737ad6873a31efc))
+* wip ([74ece34](https://github.com/BernhardRode/unicorn-release/commit/74ece348f6f523751a903f4e22003b7ba86946b4))
+* wip ([372505b](https://github.com/BernhardRode/unicorn-release/commit/372505b009aa7cf45b1e6ad0d73f3362aa110cd5))
+* wip ([fb99562](https://github.com/BernhardRode/unicorn-release/commit/fb995628a2106acc86d7947719deae9583eec227))
+
 ## [2.0.0](https://github.com/BernhardRode/unicorn-release/compare/v1.0.0...v2.0.0) (2023-12-05)
 
 
