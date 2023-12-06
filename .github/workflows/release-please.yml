@@ -16,7 +16,7 @@ jobs:
           release-type: node
           draft: false
           prerelease: false
-          skip-github-release: falsemanifest-file
+          skip-github-release: false
           config-file: ./.github/release-please-config.json
           manifest-file: ./.github/release-please-manifest.json
           pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
