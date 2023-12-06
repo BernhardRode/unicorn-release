@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/deploy-swa
         with:
-          deployment-token: "${{ secrets.DEPLOYMENT_TOKEN }}"
+          deployment-token: ${{ secrets.DEPLOYMENT_TOKEN }}
           target-env: staging
   production:
     runs-on: ubuntu-latest
@@ -28,5 +28,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/deploy-swa
         with:
-          deployment-token: "${{ secrets.DEPLOYMENT_TOKEN }}"
+          deployment-token: ${{ secrets.DEPLOYMENT_TOKEN }}
           target-env: production
