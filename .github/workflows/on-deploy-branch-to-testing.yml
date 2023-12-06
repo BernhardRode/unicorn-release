@@ -1,15 +1,13 @@
-name: 🚧 Push on "pull_request"
+name: 🧪 Manually deploy branch to "testing"
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: development
+      name: testing
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/deploy-swa

@@ -11,4 +11,13 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4.0.0
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          draft: false
+          prerelease: false
+          skip-github-release: false
+          pull-request-title-pattern: "chore${scope}: 🚀 release ${component} ${version}"
+          pull-request-header: ":robot: Release"
+          extra-files: |
+            README.md
